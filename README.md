@@ -98,24 +98,8 @@ To check model prediction:
   - Run ``check_model_prediction.py`` to load best training model and generate all 13,320 video prediction list in [Pandas](https://pandas.pydata.org/) dataframe. File output: `UCF101_Conv3D_videos_prediction.pkl`.
   - Run `check_video_predictions.ipynb` with [Jupyter Notebook](http://jupyter.org/) and you can see where the model gets wrong:
 
-<img src="./fig/wrong_pred.png" width="600">
-
-
-## Version Warrning!
-
-As of today (May 31, 2019), it is found that in Pytorch 1.1.0 **flatten_parameters()** doesn't work under [torch.no_grad and DataParallel](https://github.com/pytorch/pytorch/issues/21108) (for multiple GPUs). Early versions before Pytorch 1.0.1 still run OK. See [Issues](https://github.com/HHTseng/video-classification/issues)
-
-Thanks to [raghavgarg97](https://github.com/raghavgarg97)'s report.
-
 
 ## Device & performance 
-
-- The models detect and use multiple GPUs by themselves, where we implemented [torch.nn.DataParallel](https://pytorch.org/tutorials/beginner/former_torchies/parallelism_tutorial.html).
-
-- A field test using 2 GPUs (nVidia TITAN V, 12Gb mem) with my default model parameters and batch size `30~60`.
-
-- Some **pretrained models** can be found [here](https://drive.google.com/open?id=117mRMS2r09fz4ozkdzN4cExO1sFwcMvs), thanks to the suggestion of [MinLiAmoy](https://github.com/MinLiAmoy?tab=repositories).
-
 
  network                | best epoch | testing accuracy |
 ------------            |:-----:| :-----:|
